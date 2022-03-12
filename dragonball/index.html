@@ -1,0 +1,605 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../images/logo.jpg">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>Resolution - Dr4G0n B4ll Writeup</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#writeup-dr4g0n-b4ll" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Dr4G0n B4ll Writeup" class="md-header__button md-logo" aria-label="Dr4G0n B4ll Writeup" data-md-component="logo">
+      
+  <img src="../images/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dr4G0n B4ll Writeup
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Resolution
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Limpiar" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Inicio
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Writeup
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Dr4G0n B4ll Writeup" class="md-nav__button md-logo" aria-label="Dr4G0n B4ll Writeup" data-md-component="logo">
+      
+  <img src="../images/logo.jpg" alt="logo">
+
+    </a>
+    Dr4G0n B4ll Writeup
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Writeup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Writeup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Writeup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Resolution
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Resolution
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-laboratorio" class="md-nav__link">
+    Configuración del Laboratorio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descubrimiento-del-equipo-victima" class="md-nav__link">
+    Descubrimiento del Equipo Víctima
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-de-escaneo-y-enumeracion" class="md-nav__link">
+    Fase de Escaneo y Enumeración
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-de-explotacion" class="md-nav__link">
+    Fase de Explotación
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-de-escalada-de-privilegios" class="md-nav__link">
+    Fase de Escalada de Privilegios
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-laboratorio" class="md-nav__link">
+    Configuración del Laboratorio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descubrimiento-del-equipo-victima" class="md-nav__link">
+    Descubrimiento del Equipo Víctima
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-de-escaneo-y-enumeracion" class="md-nav__link">
+    Fase de Escaneo y Enumeración
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-de-explotacion" class="md-nav__link">
+    Fase de Explotación
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-de-escalada-de-privilegios" class="md-nav__link">
+    Fase de Escalada de Privilegios
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="writeup-dr4g0n-b4ll">Writeup - Dr4G0n B4ll</h1>
+<h2 id="configuracion-del-laboratorio">Configuración del Laboratorio</h2>
+<p>Necesitaremos tener instalado:
+- Máquina Parrot o Kali (Máquina Atacante)
+- Máquinta Dr4g0n B4ll (Máquina Víctima) -&gt; <a href="https://mega.nz/file/AoJ3EAhI#WIMxmfUXh_vr6C5lGqeCbmKOrNrJU6rB1mMc4wS7F24">https://mega.nz/file/AoJ3EAhI#WIMxmfUXh_vr6C5lGqeCbmKOrNrJU6rB1mMc4wS7F24</a></p>
+<p>Una vez tenemos nuestras máquinas en nuestro sistema de Virtualización, vamos a configurar nuestra <strong>Red</strong> en ambas máquinas con la misma configuración, en este caso, <strong>NAT</strong>.</p>
+<p><img alt="" src="../images/1-Laboratorio.png" /></p>
+<h2 id="descubrimiento-del-equipo-victima">Descubrimiento del Equipo Víctima</h2>
+<p>Para descubrir los distintos equipos que tenemos en nuestra red lo podemos hacer de dos formas distintas:
+- <strong>fping</strong>: fping es una pequeña herramienta de línea de comandos para enviar solicitudes de echo ICMP (Internet Control Message Protocol) a hosts de la red, similar a ping, pero con un rendimiento mucho mayor cuando se hace ping a múltiples hosts.
+- <strong>netdiscover</strong>: Netdiscover al igual que fping sirve para describir equipos dentro de un rango de red pero usando el protocolo ARP.</p>
+<p>Veremos que se realiza con ambos comandos la identificación del equipo víctima. Para ello primero tenemos que ver la IP de nuestra máquina atacante.</p>
+<p><img alt="" src="../images/2-IfconfigParrot.png" /></p>
+<p>Como vemos en la imagen, la ip es la siguiente <strong>192.168.194.132</strong>, por tanto, y teniendo nuestra máquina Dr4g0n B4ll arrancada, empezamos con el descubrimiento de equipos.</p>
+<p><img alt="" src="../images/3-Fping&amp;Gateway.png" /></p>
+<p>Observamos que nos ha encontrado dos equipos pero si descartamos el primero que es nuestro <strong>Gateway</strong>, sólo tendríamos el acabado en 137 que tiene pinta a ser nuestra máquina víctima. Comprobemos con <strong>netdiscover</strong> para cerciorarnos.</p>
+<pre><code>netdiscover -r 192.168.194.0/24
+</code></pre>
+<p><img alt="" src="../images/4-Netdiscover.png" /></p>
+<p>Efectivamente vemos que nos encontramos con la máquina 137. Por tanto, vamos a pasar a la <em>fase de escaneo</em> con esta IP.</p>
+<h2 id="fase-de-escaneo-y-enumeracion">Fase de Escaneo y Enumeración</h2>
+<p>La siguiente fase es la de escanear los puertos y servicios que corren en esta máquina. Para ello haremos uso de <strong>Nmap</strong>. En mi caso, siempre me gusta realizar dos tipos de escaneos, uno exclusivo de los puertos y una vez obtenidos los puertos, realizar otro para averiguar los servicios y versiones específicos que corren para esos puertos.</p>
+<p>Primer comando Nmap:</p>
+<pre><code>nmap -p- --open -T5 -v -n 192.168.194.137
+</code></pre>
+<ul>
+<li>-p-: Escaneamos todos los puertos</li>
+<li>--open: Sólo los puertos con estado Abierto.</li>
+<li>-T5: Nivel de agresividad para hacer el escaneo en el envío de paquetes siendo 5 el más alto (Recomendable siempre y cuando sea en entornos controlados.)</li>
+<li>-v: Verbose para ver el output del comando en tiempo real.</li>
+<li>-n: Evitar la resolución DNS</li>
+</ul>
+<p><img alt="" src="../images/5-Waiting.png" /></p>
+<p>Esperamos a que termine el escaneo pero a priori ya podemos ver que se encuentran el <strong>puerto 80 y 22 abiertos</strong>.</p>
+<p><img alt="" src="../images/6-FinishScanPort.png" /></p>
+<p>Nos encontramos exclusivamente con los puertos 22 y 80 abiertos, ahora vamos a proceder a analizar las versiones que corren tras estos servicios SSH y HTTP respectivamente.</p>
+<pre><code>nmap -p22,80 -sCV -v 192.168.194.137
+</code></pre>
+<p><img alt="" src="../images/7-VersionOfServices.png" /></p>
+<p>Vemos que en el puerto 22 nos encontramos con un <strong>OpenSSH 7.9p1</strong> y que en el puerto 80 tenemos un <strong>Apache httpd 2.4.38</strong>.</p>
+<p>Al tener un puerto 80 abierto vamos a ir a la web para analizar más en detalle y seguir con la enumeración.</p>
+<p>Para trabajar más cómodos vamos a asignar a nuestra IP Víctima un DNS en nuestro archivo <strong>/etc/hosts</strong></p>
+<p><img alt="" src="../images/8-DNS.png" /></p>
+<p>Ahora vamos a nuestro navegador y busquemos por la siguiente URL: http://dragonball.uco</p>
+<p><img alt="" src="../images/9-Web.png" /></p>
+<p>Vemos que nos muestra un portal web con una imagen de Dragon Ball. Llegados a este punto suelo realizar 3 apartados que sigo siempre en un portal web:</p>
+<ol>
+<li>Revisar la tecnología usada con el Addon Wappalyzer para seguir obteniendo información del servicio ya que podría usar tecnología con versiones desactualizas.</li>
+<li>Analizar el código fuente.</li>
+<li>Revisar el fichero Robots.txt</li>
+</ol>
+<p>Empezemos viendo Wappalyzer:</p>
+<p><img alt="" src="../images/10-Wappalyzer.png" /></p>
+<p>En este caso no nos ofrece más información de la que ya sabíamos. Pasemos al siguiente paso (analizar el código fuente de la web):</p>
+<p><img alt="" src="../images/11-CodigoFuente1.png" /></p>
+<p>Analizando el código fuente no vemos nada raro pero observamos por el scrollbar que posee demasiada longitud para el contenido que tiene la web, vayamos bajando...</p>
+<p><img alt="" src="../images/12-CodigoFuente2.png" /></p>
+<p>Bingo!! Encontramos un mensaje codificado. Si tenemos cierta experiencia nos podemos dar cuenta de que se parece bastante a un <strong>Base64</strong> pero con la peculiaridad de que no aparecen los dos iguales al final... Por lo que podemos suponer que igual es un Base64 concatenado varias veces. Para ello vamos utilizar la herramienta <strong>Cyberchef</strong> https://gchq.github.io/CyberChef/</p>
+<p>En este caso, usaremos <strong>Magic</strong> que nos permite especificar el número de repeticiones.</p>
+<p><img alt="" src="../images/13-CyberChef.png" /></p>
+<p>Con una repetición de 3 veces, hemos encontrado en texto claro la palabra <strong>DRAGON BALL</strong>. A priori no nos dice nada, pero sigamos con nuestros pasos establecidos y ya veremos como proseguimos después.</p>
+<p>El siguiente y último paso es analizar el archivo <strong>robots.txt</strong>.</p>
+<p><img alt="" src="../images/14-RobotsTXT.png" /></p>
+<p>Nos volvemos a encontrar con lo que parece un mensaje codificado en Base64, pero esta vez más parecido a la sintaxis de un Base64. Procedamos a decodificar el mensaje.</p>
+<pre><code>echo -n &quot;&lt;mensaje&gt;&quot; | base64 -d
+</code></pre>
+<p><img alt="" src="../images/15-HiddenDir.png" /></p>
+<p>"Encuentra el directorio oculto".... Nosotros previamente habíamos encontrado una palabra sospechosa, ¿podría ser un directorio oculto? Probemos a introducirlo en la URL.</p>
+<p><img alt="" src="../images/16-DragonBALLDirectory.png" /></p>
+<p>Efectivamente, es un directorio que contiene un secret.txt y una carpeta llamada <strong>vulnhub</strong>.</p>
+<p>Analicemos previamente el secret.txt que tiene más pinta de haber algo interesante...</p>
+<p><img alt="" src="../images/17-Secret.png" /></p>
+<p>Una lista de directorios... A priori me llama el <strong>username y passwd</strong>, comprobemos si existen...</p>
+<p><img alt="" src="../images/18-Username.png" /></p>
+<h2 id="fase-de-explotacion">Fase de Explotación</h2>
+<p>Nada... y he seguido comprobando y pasaría lo mismo con el resto de los directorios. Okey, pasemos a la carpeta <strong>Vulnhub</strong> a ver si de ahí encontramos algo interesante...</p>
+<p><img alt="" src="../images/19-Vulnhundirectory.png" /></p>
+<p>Nos encontramos con una imagen y un login... La imagen vamos a verla y posteriormente a analizar con herramientas de esteganografía por si tuviera algo oculto...</p>
+<p><img alt="" src="../images/20-Imagen.png" /></p>
+<p>Vemos que es una imagen normal pero un tanto peculiar, vamos a descargarla y ver si conlleva algo dentro usando la herramienta de Stego <strong>Stegseek</strong> que nos permite comprobar si existe algún fichero oculto en su interior utilizando un Diccionario para aplicar fuerza bruta.</p>
+<pre><code>wget &lt;enlace&gt;
+
+stegseek aj.jpg /usr/share/wordlists/rockyou.txt
+</code></pre>
+<p><img alt="" src="../images/21-DescaargaStegseek.png" /></p>
+<p>Boom!! Nos encontramos con una clave privada <strong>id_rsa</strong> gracias a la herramienta stegseek y la palabra para descargar el archivo oculto resultaba ser <strong>love</strong>.</p>
+<p>Al extraerlo se nos ha guardado con el nombre <strong>aj.jpg.out</strong>, vamos a cambiarlo a <strong>id_rsa</strong>.</p>
+<pre><code>mv aj.jpg.out id_rsa
+</code></pre>
+<p>Vale, tenemos una clave pero nos falta un usuario potencial... Si recordamos nos faltó por analizar el <strong>login.html</strong> veamos el contenido de esta página.</p>
+<p><img alt="" src="../images/22-Xmen.png" /></p>
+<p>Al analizar la página podemos ver que dice <strong>Welcome to xmen</strong>, por lo que parece ser que xmen puede ser un usuario potencial. Comprobemos si nos podemos conectar por ssh usando la clave privada a este usuario.</p>
+<p><img alt="" src="../images/23-BadPermissions.png" /></p>
+<p>Nos aparece un error de que los permisos asignados a la clave privada <strong>id_rsa</strong> no son los correctos, vayamos a googlear y comprobar qué permisos debemos de asignarle...</p>
+<p><img alt="" src="../images/24-GoodPermissions.png" /></p>
+<p>Efectivamente, tenemos que asignarle al archivo el permiso 600... </p>
+<pre><code>chmod 600 id_rsa
+</code></pre>
+<p><img alt="" src="../images/25-PermisoAsignado.png" /></p>
+<p>Ahora con el permiso correctamente asignado, veamos si podemos acceder por ssh al usuario xmen.</p>
+<p><img alt="" src="../images/26-EntramoscomoXmen.png" /></p>
+<p>Entramos al sistema como el usuario xmen!!! Ahora bien, necesitamos ser root.</p>
+<h2 id="fase-de-escalada-de-privilegios">Fase de Escalada de Privilegios</h2>
+<p>Vamos a comprobar en el usuario xmen los binarios <strong>SUID</strong> que tiene habilitados. Para ello, escribimos lo siguiente:</p>
+<pre><code>find \ /-perm -4000 2&gt;/dev/null
+</code></pre>
+<p><img alt="" src="../images/27-PermisosSUID.png" /></p>
+<p>Nos encotramos algo curioso y es que dentro del usuario xmen y dentro de la carpeta script, tenemos un binario llamado <strong>shell</strong> con permisos SUID, veámos qué ejecuta este binario.</p>
+<p><img alt="" src="../images/28-Shell.png" /></p>
+<p>Nos está ejecutando el comando de sistema <strong>PS</strong>. Además justo en la misma carpeta tenemos <strong>demo.c</strong> que parece ser que ha sido el programa con el que se ha compilado <strong>shell</strong>.</p>
+<p><img alt="" src="../images/29-DemoC.png" /></p>
+<p>Efectivamente, está llamando al comando del sistema <strong>ps</strong>. LLegados a este punto vamos a proceder a hacer un <strong>Path Hijacking</strong>, es decir, un secuestro del PATH.</p>
+<p>Para ello lo que vamos a crear es un fichero ejectuable llamado <strong>ps</strong> y cambiaremos el PATH indicándole que como primera ruta a ejecutar sea donde nosotros tenemos el fichero <strong>ps</strong> que lo que habrá escrito será lo siguiente:</p>
+<pre><code>bash -p
+</code></pre>
+<p>Lo que nos permite es que al ser un binario SUID nos ejecuta los ficheros de forma temporal siendo el usuario propietario del archivo, es decir, root. Por tanto vamos a proceder a realizar el Path Hijacking.</p>
+<p><img alt="" src="../images/30-Permisos.png" /></p>
+<p>Comprobamos previamente que el binario <strong>shell</strong> tiene como propietario a root. Ahora vamos a crear el fichero y le damos permisos de ejecución con</p>
+<pre><code>chmod +x ps
+</code></pre>
+<p><img alt="" src="../images/31-PermissionDenied.png" /></p>
+<p>No podemos crear el fichero aquí ya que el propietario es root, por lo que podemos ir a la carpeta /tmp/ o a nuestro /home/ ya que ahí si podemos crear el fichero. En mi caso, iré a la carpeta <strong>tmp</strong>.</p>
+<p><img alt="" src="../images/32-PathHijacking.png" /></p>
+<p>Creamos el fichero, le asignamos permisos de ejecución y en el PATH indicamos que inicie desde la carpeta tmp, de este modo, <strong>cuando ejecutemos el comando ps empezará a ejecutar cualquier binario llamado ps desde la carpeta /tmp/, por tanto, ejecutará bash -p con el objetivo de convertirnos en root.</strong></p>
+<p><img alt="" src="../images/33-Root.png" /></p>
+<p>Nos vamos a la carpeta <strong>script</strong> y ejecutamos <strong>shell</strong>. Finalmente somos ROOT!!!</p>
+<p>Espero que os haya gustado la máquina y hayáis aprendido, al menos que os quedéis con lo más importante que es entender como funciona el <strong>Path Hijacking</strong>.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Pie">
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Anterior: Inicio" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              Inicio
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tracking"], "translations": {"clipboard.copy": "Copiar al portapapeles", "clipboard.copied": "Copiado al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}, "search": "../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>
